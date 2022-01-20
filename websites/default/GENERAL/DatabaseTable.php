@@ -19,7 +19,7 @@ class DatabaseTable {
         return $stmt->fetchAll();
     }
     public function findDateAscending($field, $value) {
-        $stmt = $this->pdo->prepare('SELECT * FROM ' . $this->table . ' WHERE ' . $field . ' >= :value ORDER BY closingDate ASC LIMIT 10');
+        $stmt = $this->pdo->prepare('SELECT * FROM ' . $this->table . ' WHERE ' . $field . ' >= :value ORDER BY auction_date ASC LIMIT 10');
         $criteria = [
         'value' => $value
         ];

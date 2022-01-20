@@ -1,8 +1,6 @@
 
 <main class="container">
 	<ul>
-	<li><a href="/logout" class="btn btn-secondary">Logout</a></li>
-
 	<h4>Welcome to the Client Portal</h4>
 
 
@@ -22,10 +20,11 @@
 	<div class="col-md-6 mb-3 ">
 		<div class="card ">
 			<div class="card-body">
-				<h5 class="card-title">Auctions</h5>
+				<h5 class="card-title ">Auctions</h5>
 				<p class="card-text">Click below to Join or View set Auctions</p>
-				<a href="#" class="btn btn-primary">View Auctions</a>
-				<a href="#" class="btn btn-primary">Join a live  Auction</a>
+				<a href="/cleint/auction/list?sort=past" class="btn btn-primary m-2">View Past Auctions</a>
+				<a href="/cleint/auction/list?sort=future" class="btn btn-primary m-2">View Future Auctions</a>
+				<a href="/live/bid/catalogue" class="btn btn-primary m-2">See Live Auction</a>
 			</div>
 		</div>
 

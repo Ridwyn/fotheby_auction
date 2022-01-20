@@ -27,9 +27,9 @@ class Login {
 
         if ($this->authentication->login($_POST['email'], $_POST['password'])) {
           if (strval($_SESSION['user']['usertype'])== 'admin') {
-              header('location: /admin/dashboard');
+              return header('location: /admin/dashboard');
           }else{
-              header('location: /dashboard');
+              return header('location: /dashboard');
           }
 
         }

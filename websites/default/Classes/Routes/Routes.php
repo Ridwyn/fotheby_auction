@@ -17,6 +17,7 @@ class Routes implements \GENERAL\Routes {
         $userTable = new \GENERAL\DatabaseTable($pdo, 'user', 'id');
         $itemTable = new \GENERAL\DatabaseTable($pdo, 'item', 'id');
         $catalogueTable = new \GENERAL\DatabaseTable($pdo, 'catalogue', 'id');
+        $bidTable = new \GENERAL\DatabaseTable($pdo, 'bid', 'id');
         // $enquiryTable = new \GENERAL\DatabaseTable($pdo, 'enquiry', 'id');
 
 
@@ -28,7 +29,7 @@ class Routes implements \GENERAL\Routes {
 
         $loginController = new \Classes\Controllers\Login($authentication);
         $signupController = new \Classes\Controllers\Signup($authentication);
-        $homeController = new \Classes\Controllers\Home($itemTable,$categoryTable);
+        $homeController = new \Classes\Controllers\Home($itemTable,$categoryTable,$catalogueTable,$itemTable);
         $adminController = new \Classes\Controllers\Admin();
 
 
@@ -38,6 +39,7 @@ class Routes implements \GENERAL\Routes {
         $itemController = new \Classes\Controllers\Item($itemTable,$userTable,$catalogueTable);
         $catalogueController = new \Classes\Controllers\Catalogue($catalogueTable,$itemTable,$userTable);
         $auctionController = new \Classes\Controllers\Auction($catalogueTable,$itemTable,$userTable);
+        $bidController = new \Classes\Controllers\Bid($catalogueTable,$itemTable,$userTable,$bidTable);
 
 
 
@@ -58,6 +60,24 @@ class Routes implements \GENERAL\Routes {
                 'GET' => [
                     'controller' => $authentication,
                     'function' => 'error404'
+                ],
+            ],
+            'home' => [
+                'GET' => [
+                    'controller' => $homeController,
+                    'function' => 'home'
+                ],
+            ],
+            'item/view' => [
+                'GET' => [
+                    'controller' => $itemController,
+                    'function' => 'view'
+                ],
+            ],
+            'about' => [
+                'GET' => [
+                    'controller' => $homeController,
+                    'function' => 'about'
                 ],
             ],
             'login' => [
@@ -238,6 +258,28 @@ class Routes implements \GENERAL\Routes {
             'GET'=>[
                 'controller' => $itemController,
                 'function' => 'evaluate'
+            ]
+          ],
+          'cleint/auction/list' => [
+            'GET'=>[
+                'controller' => $auctionController,
+                'function' => 'list'
+            ]
+          ],
+          'live/bid/catalogue'=>[
+            'GET'=>[
+                'controller' => $bidController,
+                'function' => 'liveBidcatalogue'
+            ]
+          ],
+          'join/bid'=>[
+            'GET'=>[
+                'controller' => $bidController,
+                'function' => 'joinBid'
+            ],
+            'POST'=>[
+                'controller' => $bidController,
+                'function' => 'bid'
             ]
           ],
 

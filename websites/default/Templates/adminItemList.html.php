@@ -11,8 +11,10 @@
     </div>
 
    <?php
-      $itemStatuses= array("n/a","evaluating", "waiting", "auction", "approved");
+      $itemStatuses= array("n/a","evaluating", "waiting",  "approved");
       $itemList='';
+
+      
       foreach ($items as $key => $item) {
 
         $editBtn="";

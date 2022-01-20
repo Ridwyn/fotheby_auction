@@ -37,7 +37,7 @@
       <label for="exampleInput">Current Status of Piece</label><br>
       <select name="item[track_status]"  class="form-select" aria-label="select example">
         <?php
-        $options=array("n/a", "evaluating", "approved","auction", "waiting");
+        $options=array("n/a", "evaluating", "approved", "waiting");
           foreach ($options as $option ) {
             $selected='';
             $selectedClass='';

@@ -1,4 +1,21 @@
 
+<?php
+
+$user=null;
+$userDashLink='';
+if (isset($_SESSION['user'])) {
+ $user=$_SESSION['user'];
+  
+  if ($_SESSION['user']['usertype']=='admin') {
+    $userDashLink='/admin/dashboard';
+  }
+  if ($_SESSION['user']['usertype']=='client') {
+    $userDashLink='/dashboard';
+  }
+}
+
+
+?>
 
 
 <nav class="navbar navbar-expand-lg navbar-expand-MD primary-bg-color">
@@ -8,53 +25,31 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav row">
-      <li class="nav-item dropdown col">
-        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <li class="nav-item col">
+        <a class="nav-link  text-white" href="/home"    aria-expanded="false">
           Home
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Manage Accounts</a>
-          <a class="dropdown-item" href="#">Edit Home COntent</a>
-          <a class="dropdown-item" href="#">Anouncements</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown col">
-        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Auctions
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">View Statistics</a>
-          <a class="dropdown-item" href="#">Create Auction</a>
-          <a class="dropdown-item" href="#">Edit Auction</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown col">
-        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Catalogue
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">View Statistics</a>
-          <a class="dropdown-item" href="#">Add New Category</a>
-          <a class="dropdown-item" href="#">Edit Category</a>
-          <a class="dropdown-item" href="#">Delete Category</a>
-          <a class="dropdown-item" href="#">Add New Item</a>
-          <a class="dropdown-item" href="#">Edit Item</a>
-          <a class="dropdown-item" href="#">Delete Item</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown col">
-        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Live Auction
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Creat Open session</a>
-          <a class="dropdown-item" href="#">Create Private Session</a>
-          <a class="dropdown-item" href="#">Invite to Session</a>
-        </div>
-      </li>
       <li class="nav-item col">
         <a class="nav-link text-white" href="/about">About Us</a>
       </li>
+      
+      <?php
+        if (isset($user)) {
+         echo '
+          <li class="nav-item col">
+          <a class="nav-link text-white" href='. $userDashLink .'><i class="fas fa-portrait" style="font-size: 1.5rem;"></i> '.$user['firstname'].'</a>
+          </li>
+            <li class="nav-item col">
+            <a class="nav-link text-white" href="/logout">Logout</a>
+            </li>';
+        }
+        if (!isset($user)) {
+          echo ' <li class="nav-item col">
+          <a class="nav-link text-white" href="/login">Login</a>
+          </li>';
+        }
+      ?>
+     
     </ul>
   </div>
 </nav>

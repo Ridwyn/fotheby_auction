@@ -9,15 +9,15 @@
 
     <div class="form-group col-md-6 col-md-6">
       <label for="exampleInputEmail1">Email address</label>
-      <input name="client[email]" value="<?=$client['email'] ?? '' ?>" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <input name="client[email]" value="<?=$client['email'] ?? '' ?>" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
     </div>
     <div class="form-group col-md-6">
       <label for="exampleInputfname">FirstName</label>
-      <input name="client[firstname]" value="<?=$client['firstname'] ?? '' ?>" type="text" class="form-control" id="exampleInputfname" aria-describedby="nameHelp" placeholder="Enter firstname">
+      <input name="client[firstname]" value="<?=$client['firstname'] ?? '' ?>" type="text" class="form-control" id="exampleInputfname" aria-describedby="nameHelp" placeholder="Enter firstname" required>
     </div>
     <div class="form-group col-md-6">
       <label for="exampleInputLastname">Surname</label>
-      <input name="client[surname]" value="<?=$client['surname'] ?? '' ?>" type="text" class="form-control" id="exampleInputSurname" aria-describedby="nameHelp" placeholder="Enter lastname">
+      <input name="client[surname]" value="<?=$client['surname'] ?? '' ?>" type="text" class="form-control" id="exampleInputSurname" aria-describedby="nameHelp" placeholder="Enter lastname" required>
     </div>
     <?=(isset($client['password'])) ?
     ''
@@ -31,7 +31,7 @@
 
     <div class="form-group col-md-6">
       <label for="exampleInput">Client Status</label> <br>
-      <select name="client[status]"  class="form-select" aria-label="select example">
+      <select name="client[status]"  class="form-select" aria-label="select example" required>
         <?php
         $options=array("buyer", "seller", "both");
           foreach ($options as $option ) {

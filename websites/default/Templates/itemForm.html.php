@@ -9,31 +9,31 @@
 
     <div class="form-group col-md-6 col-md-6">
       <label for="exampleInputEmail1">Piece Title</label>
-      <input name="item[title]" value="<?=$item['title'] ?? '' ?>" type="text" class="form-control" id="exampleInput"  placeholder="Enter title">
+      <input name="item[title]" value="<?=$item['title'] ?? '' ?>" type="text" class="form-control" id="exampleInput"  placeholder="Enter title" required>
     </div>
     <div class="form-group col-md-6">
       <label for="exampleInput">Minimum Price £(GBP) </label>
-      <input name="item[price_min]" value="<?=$item['price_min'] ?? '' ?>" type="number" step="0.01" min="0" class="form-control" id="exampleInputfname" aria-describedby="nameHelp" placeholder="Enter Minimum Price">
+      <input name="item[price_min]" value="<?=$item['price_min'] ?? '' ?>" type="number" step="0.01" min="0" class="form-control" id="exampleInputfname" aria-describedby="nameHelp" placeholder="Enter Minimum Price" required>
     </div>
     <div class="form-group col-md-6">
       <label for="exampleInput">Maximum Price £(GBP) </label>
-      <input name="item[price_max]" value="<?=$item['price_max'] ?? '' ?>" type="number" step="0.01" min="1" class="form-control" id="exampleInputfname" aria-describedby="nameHelp" placeholder="Enter Maximum Price">
+      <input name="item[price_max]" value="<?=$item['price_max'] ?? '' ?>" type="number" step="0.01" min="1" class="form-control" id="exampleInputfname" aria-describedby="nameHelp" placeholder="Enter Maximum Price" required>
     </div>
     <div class="form-group col-md-6">
       <label for="exampleInput">Dimensions</label>
-      <input name="item[dimensions]" value="<?=$item['dimensions'] ?? '' ?>" type="text" class="form-control" id="exampleInput" aria-describedby="nameHelp" placeholder="Enter Dimensions 1.5m x 1.5m">
+      <input name="item[dimensions]" value="<?=$item['dimensions'] ?? '' ?>" type="text" class="form-control" id="exampleInput" aria-describedby="nameHelp" placeholder="Enter Dimensions 1.5m x 1.5m" required>
     </div>
     <div class="form-group col-md-6">
       <label for="exampleInput">Framed</label>
-      <input name="item[framed]" value="<?=$item['framed'] ?? '' ?>" type="text" class="form-control" id="exampleInput" placeholder="Mttalic Frame">
+      <input name="item[framed]" value="<?=$item['framed'] ?? '' ?>" type="text" class="form-control" id="exampleInput" placeholder="Mttalic Frame" required>
     </div>
     <div class="form-group col-md-6">
       <label for="exampleInput">Artist</label>
-      <input name="item[artist]" value="<?=$item['artist'] ?? '' ?>" type="text" class="form-control" id="exampleInput" placeholder="Banksy">
+      <input name="item[artist]" value="<?=$item['artist'] ?? '' ?>" type="text" class="form-control" id="exampleInput" placeholder="Banksy" required>
     </div>
     <div class="form-group col-md-12">
       <label for="exampleInput">Description</label>
-       <textarea name="item[description]" class="form-control" placeholder="Item description" id="floatingTextarea2" style="height: 100px"><?=$item['description'] ?? '' ?></textarea>
+       <textarea required name="item[description]" class="form-control" placeholder="Item description" id="floatingTextarea2" style="height: 100px"><?=$item['description'] ?? '' ?></textarea>
     </div>
     
 

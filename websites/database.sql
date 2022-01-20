@@ -34,10 +34,11 @@ CREATE TABLE `bid` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `bidder_id` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `date_created` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `product_id` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `item_id` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `bid_amount` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `catalogue_id` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,6 +47,7 @@ CREATE TABLE `bid` (
 
 LOCK TABLES `bid` WRITE;
 /*!40000 ALTER TABLE `bid` DISABLE KEYS */;
+INSERT INTO `bid` VALUES (8,'2',NULL,'8','86555','1'),(9,'2',NULL,'4','50001','4');
 /*!40000 ALTER TABLE `bid` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,10 +64,11 @@ CREATE TABLE `catalogue` (
   `location` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `lot_number` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `auction_date` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `auction_enddate` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `lot_reference_number` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `date_created` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,7 +77,7 @@ CREATE TABLE `catalogue` (
 
 LOCK TABLES `catalogue` WRITE;
 /*!40000 ALTER TABLE `catalogue` DISABLE KEYS */;
-INSERT INTO `catalogue` VALUES (1,'21st Century English Paintings from Emergent ','London',NULL,'2022-01-14T10:10',NULL,NULL),(2,'Hindman\'s Cincinnati Collections','Bedford',NULL,NULL,NULL,NULL);
+INSERT INTO `catalogue` VALUES (1,'21st Century English Paintings from Emergent ','London',NULL,'2022-01-16T10:10','2022-01-17T18:59',NULL,NULL),(2,'Hindman\'s Cincinnati Collections','Bedford',NULL,NULL,NULL,NULL,NULL),(3,'London Eye Auction Event','London',NULL,NULL,NULL,NULL,NULL),(4,'24st Century English Paintings from Emergent ','Oxford',NULL,'2022-01-18T18:24','2022-01-18T20:25',NULL,'2022-01-18T18:23');
 /*!40000 ALTER TABLE `catalogue` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -147,6 +150,7 @@ CREATE TABLE `item` (
   `date_added` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_auction` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `auction_date` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `auction_enddate` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `purchased_by` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_purchased` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `purchased_price` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -157,7 +161,7 @@ CREATE TABLE `item` (
   `artist` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `lot_number` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -166,7 +170,7 @@ CREATE TABLE `item` (
 
 LOCK TABLES `item` WRITE;
 /*!40000 ALTER TABLE `item` DISABLE KEYS */;
-INSERT INTO `item` VALUES (1,'baseball cap','lorem ipsum this is a baseball cap from the l',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,'Marbel Gold Plated','Find this extra shiny marble gold plated ball',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,'Emergent wealth','this the latest drawing from blu who had many','30.00','40.00',NULL,'2',NULL,NULL,NULL,NULL,NULL,NULL,'cat0','2mx2m','','n/a','blu',NULL),(4,'Birth of Venus','In 1466 Sandro drew this amazing painting','7000','10000',NULL,'2',NULL,NULL,NULL,NULL,NULL,NULL,'cat0','1.5mx1.5m','Matte Grey Frame','n/a','Sandro Botticelli',NULL),(8,'Starry night','This is the Starry night by van Gogh','4500','8900',NULL,'2',NULL,NULL,'2022-01-16T10:15',NULL,NULL,NULL,'1','2mx2m','Matte Blue Frame','auction','Van Gogh','1'),(9,'Vituvian Man','This is a piece by leonardo ','20000','35000',NULL,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'3mx3m','Mettalic Grey Frame','n/a','Leonardo D\'vinci',NULL),(12,'My bed','One of tracy greatest pieces','24000','28000',NULL,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2mx2m','Matte Grey Frame','approved','Tracey Emin',NULL);
+INSERT INTO `item` VALUES (1,'baseball cap','lorem ipsum this is a baseball cap from the l',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,'Marbel Gold Plated','Find this extra shiny marble gold plated ball',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,'Emergent wealth','this the latest drawing from blu who had many','30.00','40.00',NULL,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2mx2m','','n/a','blu',NULL),(4,'Birth of Venus','In 1466 Sandro drew this amazing painting','7000','10000',NULL,'2',NULL,NULL,'2022-01-18T18:25','2022-01-18T19:25',NULL,NULL,NULL,'4','1.5mx1.5m','Matte Grey Frame','auction','Sandro Botticelli','1'),(8,'Starry night','This is the Starry night by van Gogh','4500','8900',NULL,'2',NULL,NULL,'2022-01-16T10:10','2022-01-17T21:09',NULL,NULL,NULL,'1','2mx2m','Matte Blue Frame','auction','Van Gogh','1'),(9,'Vituvian Man','This is a piece by leonardo ','20000','35000',NULL,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1','3mx3m','Mettalic Grey Frame','approved','Leonardo D\'vinci','1'),(12,'My bed','One of tracy greatest pieces','24000','28000',NULL,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'3','2mx2m','Matte Grey Frame','auction','Tracey Emin','1'),(13,'Girl With Pear Earing','Girl with a Pearl Earring is an oil painting ','4400','45000',NULL,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'3mx3m','Matte Grey Frame','evaluating','Johannes Veneer',NULL),(14,'The Thinker','The Thinker (French: Le Penseur) is a bronze ','3400','4400',NULL,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'3','4mx4m','Sculptured','auction','Augusto Rudin','1'),(15,'Fountain','Fountain is one of Duchamp\'s most famous work','5500','6500',NULL,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'3mx3m','Sculptured in Grey','n/a','Marcel Duchamp',NULL),(16,'Painting Guernica ','Guernica (Spanish: [ɡeɾˈnika]; Basque: [ɡerni','7800','5500',NULL,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'5mx5m','Mettallic Gold Framed','approved','Pablo Picasso',NULL);
 /*!40000 ALTER TABLE `item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -200,7 +204,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'jon@gmail.com','jon',NULL,NULL,'jon','client',NULL,'buyer',NULL,NULL,NULL),(2,'ron@gmail.com','ron','','','ron','client','2243836394','seller','no','',''),(3,'admin1@gmail.com','admin1','admin1',NULL,'admin1','admin',NULL,NULL,NULL,NULL,NULL),(4,'client1@gmail.com','client1','client','','client1','client','123456789','both','yes','555666777',''),(5,'client1@gmail.com','client1','client','','client1','client','11234566','buyer','yes','5556666777','123456');
+INSERT INTO `user` VALUES (1,'jon@gmail.com','jon','','','jon','client','78905365','buyer','yes','',''),(2,'ron@gmail.com','ron','','','ron','client','2243836394','seller','no','',''),(3,'admin1@gmail.com','admin1','admin1',NULL,'admin1','admin',NULL,NULL,NULL,NULL,NULL),(4,'client1@gmail.com','client1','client','','client1','client','123456789','both','yes','555666777',''),(5,'client1@gmail.com','client1','client','','client1','client','11234566','buyer','yes','5556666777','123456');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1016,4 +1020,4 @@ CREATE TABLE IF NOT EXISTS `slow_log` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-16  8:34:11
+-- Dump completed on 2022-01-18 18:28:57

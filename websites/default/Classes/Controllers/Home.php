@@ -11,8 +11,7 @@ class Home {
     }
 
     public function home(){
-        $d=(new \DateTime)->format('Y-m-d');
-        $items=$this->dbtables['item']->findAll();
+        $items=array_slice($this->dbtables['item']->find('track_status','auction'),0,10);
         return[
             'template'=>'home.html.php',
             'title' => 'Homepage',
@@ -21,10 +20,10 @@ class Home {
     }
 
 
-    public function faqs(){
+    public function about(){
         return[
-            'template'=>'faqs.html.php',
-            'title' => 'Faqs',
+            'template'=>'about.html.php',
+            'title' => 'Abut',
             'variables'=>[],
         ];
     }

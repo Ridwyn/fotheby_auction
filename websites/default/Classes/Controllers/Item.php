@@ -101,4 +101,12 @@ class Item {
          'variables'=>['items'=>$items]
      ];
     }
+   public function view(){
+     $item=$this->dbtables['item']->find('id',$_GET['item_id'])[0];
+     return[
+         'template'=>'itemView.html.php',
+         'title' => 'Item',
+         'variables'=>['item'=>$item]
+     ];
+    }
 }

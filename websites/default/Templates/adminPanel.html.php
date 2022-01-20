@@ -1,8 +1,6 @@
 
 <main class="container">
 	<ul>
-	<li><a href="/logout" class="btn btn-secondary">Logout</a></li>
-
 	<h4>Welcome to the admin panel</h4>
 
 
@@ -12,8 +10,8 @@
 			<div class="card-body">
 				<h5 class="card-title">Accounts</h5>
 				<p class="card-text">Manage all Accounts both seller and buyers</p>
-				<a href="/client/list" class="btn btn-primary">Manage  Accounts</a>
-				<a href="/client/edit" class="btn btn-primary"> Create New Account</a>
+				<a href="/client/list" class="btn btn-primary m-2">Manage  Accounts</a>
+				<a href="/client/edit" class="btn btn-primary m-2"> Create New Account</a>
 			</div>
 		</div>
 	</div>
@@ -29,6 +27,7 @@
 				<a href="/admin/auction/list?sort=future" class="btn btn-primary m-2">View Future Auctions</a>
 				<a href="/admin/auction/catalogue/edit?edit_all_auction=1" class="btn btn-primary m-2">Edit Auctions</a>
 				<a href="/admin/auction/catalogue/edit?edit_all_auction=0" class="btn btn-primary m-2"> Create New Auction</a>
+				<a href="/live/bid/catalogue" class="btn btn-primary m-2">Live Auctions </a>
 			</div>
 		</div>
 

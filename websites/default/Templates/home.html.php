@@ -1,25 +1,28 @@
+<main class="container">
 
-<main>
+   <?php
+      $itemList='';
+      foreach ($items as $key => $item) {
 
-<p>Welcome to Jo's Jobs, we're a recruitment agency based in Northampton. We offer a range of different office jobs. Get in touch if you'd like to list a job with us.</a></p>
+        $editBtn="";
 
-<h2>Select the type of job you are looking for:</h2>
+        $viewItem= "<span class=''><a href='/item/view?item_id={$item['id']}' class=' p-1'><i class='fas fa-info-circle'></i> View</a></span>" ;
 
-<ul class="listing">
+        $div="<div class='col my-2'>
+        <div class='card ' style='width: 18rem;'>
+        <div class='card-body'>
+          <h5 class='card-title'>{$item['title']}</h5>
+          <h6 class='card-subtitle mb-2 text-muted'>{$item['artist']}</h6>
+          <p class='card-text'>{$item['description']}</p>
+          {$viewItem}
+        </div>
+        </div>
+        </div>";
+        $itemList.=$div;
+        }
+        echo '<div class="row row-cols-1 row-cols-md-3 g-4">'.$itemList.'</div>';
 
-<?php
-    foreach ($items as $key => $item) {
-        echo '<li>';
-        echo '<div class="details">';
-        echo '<h2>' . $item['name'] . '</h2>';
-        echo '<h3>' . $item['description'] . '</h3>';
-        echo '</div>';
-        echo '</li>';
-    }
-?>
+     ?>
 
-
-
-</ul>
 
 </main>

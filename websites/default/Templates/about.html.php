@@ -1,25 +1,18 @@
 
 
 <main class="container ">
+<div class="card">
+  <div class="card-header">
+    Fotheby's Auction House
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>Fotheby's is a privately owned international auction house
+      It is one of the world's largest and 
+most renowned auctioneers of fine art and antiques, motor cars and jewellery.  
+      .</p>
+    </blockquote>
+  </div>
+</div>
 
-    <section >
-        <h2>About us</h2>
-        <h5><?=$msg??''?></h5>
-        <form action="" method="POST">
-            <label>Name</label>
-            <input type="text" name="enquiry[name]"  value="<?=$enquiry['name'] ?? ''?>"/>
-
-            <label>E-mail </label>
-            <input type="text" name="enquiry[email]"  value="<?=$enquiry['email'] ?? ''?>"/>
-
-            <label>Telephone </label>
-            <input type="text" name="enquiry[telephone]"  value="<?=$enquiry['telephone'] ?? ''?>"/>
-
-            <label>Message</label>
-            <textarea name="enquiry[message]" value="<?=$enquiry['message'] ?? ''?>"></textarea>
-
-
-            <input type="submit" name="submit" value="Submit" />
-        </form>
-    </section>
 </main>
